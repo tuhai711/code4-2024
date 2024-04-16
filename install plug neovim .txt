@@ -1,0 +1,22 @@
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
+https://github.com/VuNguyenCoder/VimConfig
+apt-get install clangd-12
+copy to  ~/.config/nvim/ --- ~/.vim and create file ~/.vimrc
+apt install nodejs
+apt install ccls
+nvim then run  :PlugInstall
+:CocInstall coc-clangd
+export TERM=putty-256color to /root/.bachrc --> enable HOME and END
+
+
+https://github.com/neoclide/coc.nvim/wiki/Language-servers#ccobjective-c
+
+use for user not root 
+"languageserver": {
+  "clangd": {
+    "command": "clangd",
+    "rootPatterns": ["compile_flags.txt", "compile_commands.json"],
+    "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"]
+  }
+}

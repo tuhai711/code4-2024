@@ -1,0 +1,27 @@
+https://www.tecmint.com/setup-ipsec-vpn-with-strongswan-on-debian-ubuntu/
+https://learn.microsoft.com/en-us/answers/questions/1148931/error-with-vpn-connection
+Tere is the meaning of each configuration parameter:
+
+config setup – specifies general configuration information for IPSec which applies to all connections.
+charondebug – defines how much Charon debugging output should be logged.
+uniqueids – specifies whether a particular participant ID should be kept unique.
+conn prodgateway-to-devgateway – defines connection name.
+type – defines connection type.
+auto – how to handle connection when IPSec is started or restarted.
+keyexchange – defines the version of the IKE protocol to use.
+authby – defines how peers should authenticate each other.
+left – defines the IP address of the left participant’s public-network interface.
+leftsubnet – states the private subnet behind the left participant.
+right – specifies the IP address of the right participant’s public-network interface.
+rightsubnet – states the private subnet behind the left participant.
+ike – defines a list of IKE/ISAKMP SA encryption/authentication algorithms to be used. You can add a comma-separated list.
+esp – defines a list of ESP encryption/authentication algorithms to be used for the connection. You can add a comma-separated list.
+aggressive – states whether to use Aggressive or Main Mode.
+keyingtries – states the number of attempts that should be made to negotiate a connection.
+ikelifetime – states how long the keying channel of a connection should last before being renegotiated.
+lifetime – defines how long a particular instance of a connection should last, from successful negotiation to expiry.
+dpddelay – specifies the time interval with which R_U_THERE messages/INFORMATIONAL exchanges are sent to the peer.
+dpdtimeout – specifies the timeout interval, after which all connections to a peer are deleted in case of inactivity.
+dpdaction – defines how to use the Dead Peer Detection(DPD) protocol to manage the connection.
+
+man ipsec.conf

@@ -1,0 +1,25 @@
+PREROUTING: duoc dung de chuyen doi dia chi translate truoc khi lam dong tac routing, muc tieu la chuyen doi dia chi dich cho tuong thich voi bang routing, thong thuong cai nay duoc dung voi NAT cua destination, hay con goi la destination NAT hoac DNAT
+
+POSTROUTING: duoc dung de chuyen doi dia chi sau khi routing, hay noi cach khac dung cho NAT source IP address (SNAT)
+
+-A PREROUTING -p tcp --dport 110 -d 210.31.24.140 -j DNAT --to -destination 172.16.24.2:110
+
+cau nay co nghia bat cu packet nao den port 110(pop3) destination IP = 210.31.24.140 thi se translate package nay thanh destination address la 172.16.24.2 sau do firewall cua ban se forward packet nay de may 172.16.24.2 (port 110)
+==================================================
+-A POSTROUTING -d 192.168.2.0/255.255.255.0 -j SNAT --to -source 192.168.2.254
+
+cau nay co nghia la: neu bat cu package co destination 192.168.2.0/24 thi chuyen doi dia chi source thanh 192.168.2.254
+
+==================================================
+Theo nhung cau hien gio ban gui len
+( firewall có 2nic : internet <-->eth3(192.168.2.254)--eth0(10.3.0.254)<-->pc)
+
+-A POSTROUTING -d 192.168.2.0/255.255.255.0 -j SNAT --to -source 192.168.2.254
+
+-A PREROUTING -s 172.16.0.0/255.255.255.0 -j RETURN
+
+thi mang cua ban hien gio mang cua ban NAT 2 lan (1 lan tai firewall, mot lan tai ADSL
+
+
+https://vietnix.vn/iptables-la-gi/
+https://tailieu.vn/doc/do-an-iptables-tren-linux-657613.html
